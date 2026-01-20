@@ -1,0 +1,30 @@
+/* 1. Imports */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import 'tailwindcss';
+
+/* 2. Brand Theme */
+@theme {
+  --color-bond-blue: #2563eb;
+  --color-bond-slate: #64748b;
+  --color-bond-dark: #0f172a;
+  --color-bond-bg: #fdfdfd;
+}
+
+/* 3. Base Styles */
+:root {
+  font-family: 'Inter', sans-serif;
+  /* scroll-behavior: smooth; */
+}
+
+body {
+  margin: 0;
+  background-color: #fdfdfd;
+  color: #0f172a;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom selection color */
+::selection {
+  background: rgba(37, 99, 235, 0.1);
+  color: #2563eb;
+}
