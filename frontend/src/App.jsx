@@ -7,6 +7,7 @@ import Vision from "./components/Vision";
 import Roadmap from "./components/Roadmap";
 import EarlyAccess from "./components/EarlyAccess";
 import Footer from "./components/Layout/Footer";
+import GridBackground from "./components/GridBackground";
 
 function App() {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -32,6 +33,7 @@ function App() {
     <div className="min-h-screen bg-[#FDFDFD] selection:bg-blue-100 selection:text-bond-blue relative">
       <Navbar />
       <main>
+        {/* <GridBackground /> */}
         <Hero />
         <Vision />
         <Roadmap />
@@ -49,7 +51,7 @@ function App() {
             whileHover={{ scale: 1.1, y: -5 }}
             whileTap={{ scale: 0.9 }}
             onClick={scrollToTop}
-            className="fixed bottom-8 right-8 z-[60] p-4 bg-white/80 backdrop-blur-lg border border-gray-200 
+            className="fixed bottom-8 right-8 p-4 bg-white/80 backdrop-blur-lg border border-gray-200 
                        text-bond-blue rounded-2xl shadow-2xl shadow-blue-500/10 cursor-pointer group"
           >
             <ChevronUp size={24} className="group-hover:-translate-y-1 transition-transform" />

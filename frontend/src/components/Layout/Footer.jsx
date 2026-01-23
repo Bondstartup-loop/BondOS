@@ -90,7 +90,7 @@ const Footer = () => {
               </div>
               <p className="text-[11px] text-bond-slate font-medium leading-relaxed">
                 Platform development in progress. <br />
-                Early Access invites rolling out Q1 2025.
+                Early Access invites rolling out Q1 2026.
               </p>
             </div>
           </div>
