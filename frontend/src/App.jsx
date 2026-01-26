@@ -7,7 +7,6 @@ import Vision from "./components/Vision";
 import Roadmap from "./components/Roadmap";
 import EarlyAccess from "./components/EarlyAccess";
 import Footer from "./components/Layout/Footer";
-import GridBackground from "./components/GridBackground";
 
 function App() {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -33,7 +32,6 @@ function App() {
     <div className="min-h-screen bg-[#FDFDFD] selection:bg-blue-100 selection:text-bond-blue relative">
       <Navbar />
       <main>
-        {/* <GridBackground /> */}
         <Hero />
         <Vision />
         <Roadmap />
@@ -62,7 +60,7 @@ function App() {
         )}
       </AnimatePresence>
 
-      <div className="fixed top-0 left-1/2 -translate-x-1/2 -z-10 w-full max-w-4xl h-[500px] bg-blue-100/20 blur-[120px] rounded-full" />
+      <div className="fixed top-0 left-1/2 -translate-x-1/2 -z-10 w-full max-w-4xl h-125 bg-blue-100/20 blur-[120px] rounded-full" />
     </div>
   );
 }
