@@ -8,23 +8,19 @@ const Typewriter = () => {
   const [subIndex, setSubIndex] = useState(0);
   const [reverse, setReverse] = useState(false);
 
-  // Typewriter effect logic
   useEffect(() => {
     if (subIndex === words[index].length + 1 && !reverse) {
-      setTimeout(() => setReverse(true), 2000); // Pause at end
+      setTimeout(() => setReverse(true), 2000);
       return;
     }
-
     if (subIndex === 0 && reverse) {
       setReverse(false);
       setIndex((prev) => (prev + 1) % words.length);
       return;
     }
-
     const timeout = setTimeout(() => {
       setSubIndex((prev) => prev + (reverse ? -1 : 1));
-    }, reverse ? 75 : 150); // Speed of typing/deleting
-
+    }, reverse ? 75 : 150);
     return () => clearTimeout(timeout);
   }, [subIndex, index, reverse]);
 
@@ -34,7 +30,8 @@ const Typewriter = () => {
       <motion.span
         animate={{ opacity: [1, 0] }}
         transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
-        className="inline-block w-[4px] h-[50px] md:h-[75px] bg-bond-blue ml-1 ml-2 align-middle"
+        /* Use 'em' for height so it matches font size on all screens */
+        className="inline-block w-[3px] md:w-[4px] h-[1.1em] bg-bond-blue ml-1 align-middle"
       />
     </span>
   );
