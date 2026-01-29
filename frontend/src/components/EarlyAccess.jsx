@@ -115,6 +115,7 @@ const EarlyAccess = () => {
                     <Send size={18} />
                   </motion.button>
                 </form>
+                
                 <p className="mt-6 text-xs text-gray-400">
                   No spam. Just early access and major milestones.
                 </p>
