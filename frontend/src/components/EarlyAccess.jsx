@@ -7,54 +7,29 @@ import {
   MessageSquare,
   MessageCircle,
 } from "lucide-react";
-import axios from "axios";
 
 const EarlyAccess = () => {
   const [submitted, setSubmitted] = useState(false);
   const [email, setEmail] = useState("");
   const [feedback, setFeedback] = useState("");
-  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setLoading(true);
-    if (!email) {
-      setLoading(false);
-      return alert("Email is required");
-    }
-    try {
-      const response = await axios.post("http://localhost:8000/founders", {
-        email: email,
-        feedback: feedback,
-      });
-      console.log("Backend Response:", response.data);
-      setSubmitted(true);
-    } catch (error) {
-      if (error.response && error.response.status === 409) {
-        alert("You are already on the waitlist! We'll reach out to you soon.");
-        setSubmitted(true);
-      } else {
-        console.error("Submission failed:", error);
-        alert("Something went wrong. Please try again.");
-      }
-    } finally {
-      setLoading(false);
-    }
+    console.log({ email, feedback });
+    setSubmitted(true);
   };
 
   return (
-    <section
-      id="earlyaccess"
-      className="py-14 px-4 sm:px-8 relative overflow-hidden "
-    >
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[600px] h-[300px] md:h-[400px] bg-blue-50/50 blur-[100px] -z-10 rounded-full" />
+    <section id="earlyaccess" className="py-14 px-8 relative overflow-hidden ">
+      {/* Background Decorative Element */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-blue-50/50 blur-[100px] -z-10 rounded-full" />
 
       <div className="max-w-3xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-white border border-gray-100 shadow-premium rounded-[32px] sm:rounded-[40px] p-6 sm:p-8 md:p-16 text-center relative overflow-hidden"
+          className="bg-white border border-gray-100 shadow-premium rounded-[40px] p-8 md:p-16 text-center relative overflow-hidden"
         >
           <AnimatePresence mode="wait">
             {!submitted ? (
@@ -71,7 +46,7 @@ const EarlyAccess = () => {
                   Shape the future of{" "}
                   <span className="text-bond-blue">BOND.</span>
                 </h2>
-                <p className="text-bond-slate text-base md:text-lg mb-10 max-w-lg mx-auto">
+                <p className="text-bond-slate text-lg mb-10 max-w-lg mx-auto">
                   We are building BOND for the next generation of founders. Join
                   the waitlist and help us build the OS you've always wanted.
                 </p>
@@ -107,14 +82,14 @@ const EarlyAccess = () => {
                   </div>
 
                   <motion.button
-                    disabled={loading}
-                    type="submit"
-                    className={`w-full py-4 bg-bond-dark text-white font-bold rounded-2xl shadow-xl transition-all flex items-center justify-center gap-2 ${loading ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}`}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="w-full py-4 bg-bond-dark text-white font-bold rounded-2xl shadow-xl hover:bg-black transition-all flex items-center justify-center gap-2 cursor-pointer"
                   >
-                    {loading ? "Processing..." : "Join the Inner Circle"}{" "}
-                    <Send size={18} />
+                    Join the Inner Circle <Send size={18} />
                   </motion.button>
                 </form>
+
                 <p className="mt-6 text-xs text-gray-400">
                   No spam. Just early access and major milestones.
                 </p>
@@ -126,15 +101,16 @@ const EarlyAccess = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 className="py-6 flex flex-col items-center"
               >
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-green-50 text-green-500 rounded-full flex items-center justify-center mx-auto mb-8">
+                <div className="w-20 h-20 bg-green-50 text-green-500 rounded-full flex items-center justify-center mx-auto mb-8">
                   <CheckCircle2 size={40} />
                 </div>
-                <h2 className="text-2xl md:text-3xl font-bold text-bond-dark mb-4">
+                <h2 className="text-3xl font-bold text-bond-dark mb-4">
                   You're on the list!
                 </h2>
-                <p className="text-bond-slate text-base md:text-lg mb-8">
+                <p className="text-bond-slate text-lg mb-8">
                   Thanks for the feedback. We'll reach out to{" "}
-                  <strong>{email}</strong> shortly.
+                  <strong>{email}</strong> shortly with your early access
+                  invite.
                 </p>
 
                 <motion.div
@@ -145,13 +121,15 @@ const EarlyAccess = () => {
                 >
                   <p className="text-bond-slate text-sm font-semibold flex items-center gap-2 mb-2">
                     <span className="text-bond-blue">✦</span> Join 100+ founders
-                    in our circle
+                    in our inner circle
                   </p>
                   <p className="text-bond-slate/60 text-xs max-w-[280px]">
-                    Get daily startup insights and real-time platform updates.
+                    Get daily startup insights, high-leverage frameworks, and
+                    real-time platform updates.
                   </p>
                 </motion.div>
 
+                {/* COMMUNITY BUTTON */}
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -161,12 +139,10 @@ const EarlyAccess = () => {
                       "_blank",
                     )
                   }
-                  className="w-full sm:w-auto px-6 md:px-10 py-4 bg-bond-blue text-white font-bold rounded-2xl shadow-xl shadow-blue-200 hover:bg-blue-700 transition-all flex items-center justify-center gap-3 cursor-pointer mb-6"
+                  className="px-10 py-4 bg-bond-blue text-white font-bold rounded-2xl shadow-xl shadow-blue-200 hover:bg-blue-700 transition-all flex items-center gap-3 cursor-pointer mb-6"
                 >
                   <MessageCircle size={20} />
-                  <span className="text-sm md:text-base">
-                    Join the Community
-                  </span>
+                  Join the Founder Community
                 </motion.button>
 
                 <button
