@@ -11,7 +11,6 @@ import Footer from "./components/Layout/Footer";
 function App() {
   const [showScrollTop, setShowScrollTop] = useState(false);
 
-  // Monitor scroll for the floating button
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 400) {
@@ -39,7 +38,7 @@ function App() {
       </main>
       <Footer />
 
-      {/* FLOATING BACK TO TOP BUTTON */}
+      {/* FLOATING BACK TO TOP BUTTON - Adjusted for mobile */}
       <AnimatePresence>
         {showScrollTop && (
           <motion.button
@@ -49,12 +48,10 @@ function App() {
             whileHover={{ scale: 1.1, y: -5 }}
             whileTap={{ scale: 0.9 }}
             onClick={scrollToTop}
-            className="fixed bottom-8 right-8 p-4 bg-white/80 backdrop-blur-lg border border-gray-200 
-                       text-bond-blue rounded-2xl shadow-2xl shadow-blue-500/10 cursor-pointer group"
+            className="fixed bottom-6 right-6 md:bottom-8 md:right-8 p-3 md:p-4 bg-white/80 backdrop-blur-lg border border-gray-200 
+                       text-bond-blue rounded-2xl shadow-2xl shadow-blue-500/10 cursor-pointer group z-50"
           >
             <ChevronUp size={24} className="group-hover:-translate-y-1 transition-transform" />
-            
-            {/* Subtle Inner Glow */}
             <div className="absolute inset-0 bg-blue-500/5 blur-xl rounded-full -z-10" />
           </motion.button>
         )}
