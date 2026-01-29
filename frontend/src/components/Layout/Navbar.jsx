@@ -118,7 +118,7 @@ export const Navbar = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-bond-blue/40 to-transparent"
+              className="absolute bottom-0 left-0 w-full h-px bg-linear-to-r from-transparent via-bond-blue/40 to-transparent"
             />
           )}
         </AnimatePresence>

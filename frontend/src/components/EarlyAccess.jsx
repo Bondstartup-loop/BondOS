@@ -47,14 +47,14 @@ const EarlyAccess = () => {
       id="earlyaccess"
       className="py-14 px-4 sm:px-8 relative overflow-hidden "
     >
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[600px] h-[300px] md:h-[400px] bg-blue-50/50 blur-[100px] -z-10 rounded-full" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-75 md:w-150 h-75 md:h-100 bg-blue-50/50 blur-[100px] -z-10 rounded-full" />
 
       <div className="max-w-3xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-white border border-gray-100 shadow-premium rounded-[32px] sm:rounded-[40px] p-6 sm:p-8 md:p-16 text-center relative overflow-hidden"
+          className="bg-white border border-gray-100 shadow-premium rounded-4xl sm:rounded-[40px] p-6 sm:p-8 md:p-16 text-center relative overflow-hidden"
         >
           <AnimatePresence mode="wait">
             {!submitted ? (
@@ -148,7 +148,7 @@ const EarlyAccess = () => {
                     <span className="text-bond-blue">✦</span> Join 100+ founders
                     in our circle
                   </p>
-                  <p className="text-bond-slate/60 text-xs max-w-[280px]">
+                  <p className="text-bond-slate/60 text-xs max-w-70">
                     Get daily startup insights and real-time platform updates.
                   </p>
                 </motion.div>

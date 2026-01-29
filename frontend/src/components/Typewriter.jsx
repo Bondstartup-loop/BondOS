@@ -31,7 +31,7 @@ const Typewriter = () => {
         animate={{ opacity: [1, 0] }}
         transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
         /* Use 'em' for height so it matches font size on all screens */
-        className="inline-block w-[3px] md:w-[4px] h-[1.1em] bg-bond-blue ml-1 align-middle"
+        className="inline-block w-0.75 md:w-1 h-[1.1em] bg-bond-blue ml-1 align-middle"
       />
     </span>
   );

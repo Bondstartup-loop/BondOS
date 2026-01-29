@@ -162,11 +162,11 @@ export const Roadmap = () => {
 
         {/* Timeline Area */}
         <div className="relative pb-40">
-          <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-[1px] bg-gray-200" />
+          <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-px bg-gray-200" />
           
           <motion.div
             style={{ scaleY }}
-            className="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-[2px] bg-bond-blue origin-top z-10 shadow-[0_0_20px_rgba(37,99,235,0.4)]"
+            className="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-0.5 bg-bond-blue origin-top z-10 shadow-[0_0_20px_rgba(37,99,235,0.4)]"
           />
 
           {/* Steps */}
@@ -190,7 +190,7 @@ export const Roadmap = () => {
                       <span className="text-[10px] font-black text-bond-blue tracking-widest uppercase">
                         Step {item.step}
                       </span>
-                      <div className="h-[1px] w-8 bg-blue-100 group-hover:w-12 transition-all duration-500" />
+                      <div className="h-px w-8 bg-blue-100 group-hover:w-12 transition-all duration-500" />
                     </div>
                     <h3 className="text-2xl font-bold text-bond-dark mb-3 tracking-tight">
                       {item.title}
@@ -241,7 +241,7 @@ export const Roadmap = () => {
               onClick={() => slowScrollTo('earlyaccess')}
               className="group relative px-14 py-7 bg-bond-dark text-white font-black rounded-3xl shadow-2xl hover:bg-black transition-all active:scale-95 cursor-pointer flex flex-col items-center overflow-hidden"
             >
-               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+               <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
                <span className="text-[10px] opacity-60 uppercase tracking-[0.2em] mb-1 font-bold">Phase 01 Achieved</span>
                <span className="flex items-center gap-3 text-xs tracking-widest uppercase">
                  Join the Inner Circle  <Rocket size={18} className={hasFired ? "text-bond-blue animate-bounce" : ""} />

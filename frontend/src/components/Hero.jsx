@@ -48,7 +48,7 @@ export const Hero = () => {
 
         <h1 className="text-4xl sm:text-6xl md:text-8xl font-extrabold text-bond-dark tracking-tight mb-8 leading-[1.1]">
           From Idea to <br />
-          <div className="h-[60px] sm:h-[80px] md:h-[120px] flex items-center justify-center">
+          <div className="h-15 sm:h-20 md:h-30 flex items-center justify-center">
             <Typewriter />
           </div>
         </h1>
@@ -76,7 +76,7 @@ export const Hero = () => {
             onClick={() => slowScrollTo("vision")}
             className="group relative px-10 md:px-12 py-4 md:py-5 bg-bond-dark text-white font-bold rounded-2xl shadow-2xl transition-all overflow-hidden cursor-pointer"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+            <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
             <span className="relative flex items-center gap-3 text-sm md:text-base">
               Explore BOND{" "}
               <ArrowRight
